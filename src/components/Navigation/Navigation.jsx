@@ -1,6 +1,6 @@
 import ConnectedAccount from "./ConnectedAccount";
 import ConnectedNetwork from "./ConnectedNetwork";
-const Navigation = ()=>{
+const Navigation = () => {
   return(
     <header className="navbar">
       <div className="navbar-btns"></div>

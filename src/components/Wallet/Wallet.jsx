@@ -41,7 +41,7 @@ const Wallet = ({children}) => {
                 "selectedAccount:", selectedAccount,
                 "stakingContract:", stakingContract, 
                 "stakeTokenContract:", stakeTokenContract, 
-                "chainId:", chainId
+                "chainId:", chainId,
             );
             setState({
                 provider,
