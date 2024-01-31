@@ -1,3 +1,4 @@
+import AccountBalance from "./AccountBalance";
 import ConnectedAccount from "./ConnectedAccount";
 import ConnectedNetwork from "./ConnectedNetwork";
 const Navigation = () => {
@@ -7,6 +8,7 @@ const Navigation = () => {
       <div className="navbar-acc">
         <ConnectedAccount />
         <ConnectedNetwork />
+        <AccountBalance/>
       </div>
     </header>
   )

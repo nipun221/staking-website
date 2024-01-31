@@ -12,6 +12,7 @@ const Wallet = ({children}) => {
         stakingContract: null,
         stakeTokenContract: null,
         chainId: null,
+        balance: null
     })
 
     const [isLoading, setIsLoading] = useState(false);
@@ -34,6 +35,7 @@ const Wallet = ({children}) => {
                 stakingContract,
                 stakeTokenContract,
                 chainId,
+                balance
             } = await connectWallet();
             console.log(
                 "Connected to wallet!", 
@@ -42,6 +44,7 @@ const Wallet = ({children}) => {
                 "stakingContract:", stakingContract, 
                 "stakeTokenContract:", stakeTokenContract, 
                 "chainId:", chainId,
+                "balance:", balance
             );
             setState({
                 provider,
@@ -49,6 +52,7 @@ const Wallet = ({children}) => {
                 stakingContract,
                 stakeTokenContract,
                 chainId,
+                balance
             });
         } catch (error) {
             console.error("Error connecting wallet: ", error.message);

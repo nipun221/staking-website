@@ -4,7 +4,7 @@ import stakeTokenAbi from '../ABI/stakeTokenAbi.json';
 
 export const connectWallet = async () => {
     try {
-        let [signer, provider, stakingContract, stakeTokenContract, chainId] = [null];
+        let [signer, provider, stakingContract, stakeTokenContract, chainId, balance] = [null, null, null, null, null, null];
         const stakingContractAddress = import.meta.env.VITE_STAKING_CONTRACT_ADDRESS;
         const stakeTokenContractAddress = import.meta.env.VITE_STAKE_TOKEN_CONTRACT_ADDRESS;
 
@@ -32,7 +32,10 @@ export const connectWallet = async () => {
         stakingContract = new Contract(stakingContractAddress, stakingAbi, signer);
         stakeTokenContract = new Contract(stakeTokenContractAddress, stakeTokenAbi, signer);
 
-        return {provider, selectedAccount, stakingContract, stakeTokenContract, chainId};
+        const balanceWei = await await provider.getBalance(selectedAccount);
+        balance = ethers.formatUnits(balanceWei.toString(), 18);
+
+        return {provider, selectedAccount, stakingContract, stakeTokenContract, chainId, balance};
     } catch (error) {
         console.error(error);
         throw error;
